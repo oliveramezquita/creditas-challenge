@@ -37,4 +37,13 @@ services:
       - ./webapp:/usr/src/app/webapp
       - /usr/src/app/webapp/node_modules
     ports:
-      - 8080:8080   
+      - 8080:8080
+  documentation:
+    build:
+      context: ./endpoint-doc
+      dockerfile: Dockerfile
+    container_name: documentation
+    volumes:
+      - ./endpoint-doc:/site
+    ports:
+      - 8081:8081 

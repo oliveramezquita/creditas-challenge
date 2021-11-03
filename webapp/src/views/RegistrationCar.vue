@@ -9,7 +9,8 @@
           <b-form-group
             id="fieldset-name"
             label="Nombre completo"
-            label-for="name">
+            label-for="name"
+            class="mt-3">
               <b-form-input id="name" v-model="name" type="text" placeholder="Introduzca su nombre completo"></b-form-input>
           </b-form-group>
         </b-col>
@@ -17,7 +18,8 @@
           <b-form-group
             id="fieldset-phone"
             label="Teléfono"
-            label-for="phone">
+            label-for="phone"
+            class="mt-3">
             <b-form-input id="phone" v-model="phone" type="text" placeholder="Introduzca su teléfono a diez dígitos" v-on:keypress="isLetterOrNumber($event)"></b-form-input>
           </b-form-group>
         </b-col>

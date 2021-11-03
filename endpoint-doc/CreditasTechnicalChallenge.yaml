@@ -1,0 +1,910 @@
+openapi: 3.1.0
+info:
+  title: CreditasTechnicalChallenge
+  version: '1.0'
+  summary: Creditas Technical Challenge - API REST
+  description: This is the documentation for the REST API endpoints
+  contact:
+    name: Oliver Amézquita Morales
+    email: oliver.amezquita@hotmail.com
+servers:
+  - url: 'http://localhost:8000'
+    description: Codeigniter
+paths:
+  /car:
+    get:
+      summary: Car list
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    clients:
+                      - id: 1
+                        name: Oliver Amézquita Morales
+                        phone: 4775764663
+                        email: oliver.amezquita@hotmail.com
+                        rfc: AEMO850615TF6
+                        address: 'Circuito Maremma 150, Fracc. Benevento'
+                        zipcode: 37526
+                        city: León
+                        state: Guanajuato
+                        type: car
+                        status: 1
+                        created: '2021-11-01 05:07:01'
+                        client_id: 1
+                        model: Mitsubishi Lancer 2009
+                        price: '179000.00'
+                properties:
+                  clients:
+                    type: array
+                    uniqueItems: false
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        name:
+                          type: string
+                        phone:
+                          type: number
+                        email:
+                          type: string
+                        rfc:
+                          type: string
+                        address:
+                          type: string
+                        zipcode:
+                          type: number
+                        city:
+                          type: string
+                        state:
+                          type: string
+                        type:
+                          type: string
+                        status:
+                          type: number
+                        created:
+                          type: string
+                        client_id:
+                          type: number
+                        model:
+                          type: string
+                        price:
+                          type: number
+              examples:
+                example-1:
+                  value:
+                    clients:
+                      - id: 1
+                        name: Oliver Amézquita Morales
+                        phone: 4775764663
+                        email: oliver.amezquita@hotmail.com
+                        rfc: AEMO850615TF6
+                        address: 'Circuito Maremma 150, Fracc. Benevento'
+                        zipcode: 37526
+                        city: León
+                        state: Guanajuato
+                        type: car
+                        status: 1
+                        created: '2021-11-01 05:07:01'
+                        client_id: 1
+                        model: Mitsubishi Lancer 2009
+                        price: 179000
+      operationId: get-car
+      description: Gets the list of registered leads of type auto
+    post:
+      summary: Create car lead
+      operationId: post-car
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: 201
+                    client_id: 1
+                    error: null
+                    messages:
+                      success: El cliente ha sido creado exitosamente
+                properties:
+                  status:
+                    type: number
+                  client_id:
+                    type: number
+                  error: {}
+                  messages:
+                    type: object
+                    properties:
+                      success:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                    status: 201
+                    client_id: 1
+                    error: null
+                    messages:
+                      success: El cliente ha sido creado exitosamente
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: 400
+                    error: 400
+                    messages:
+                      name: The name field is required.
+                      phone: The phone field is required.
+                      email: The email field is required.
+                      rfc: The rfc field is required.
+                      address: The address field is required.
+                      zipcode: The zipcode field is required.
+                      city: The city field is required.
+                      state: The state field is required.
+                      model: The model field is required.
+                      price: The price field is required.
+                properties:
+                  status:
+                    type: number
+                  error:
+                    type: number
+                  messages:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      phone:
+                        type: string
+                      email:
+                        type: string
+                      rfc:
+                        type: string
+                      address:
+                        type: string
+                      zipcode:
+                        type: string
+                      city:
+                        type: string
+                      state:
+                        type: string
+                      model:
+                        type: string
+                      price:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                    status: 400
+                    error: 400
+                    messages:
+                      name: The name field is required.
+                      phone: The phone field is required.
+                      email: The email field is required.
+                      rfc: The rfc field is required.
+                      address: The address field is required.
+                      zipcode: The zipcode field is required.
+                      city: The city field is required.
+                      state: The state field is required.
+                      model: The model field is required.
+                      price: The price field is required.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              description: ''
+              type: object
+              x-examples:
+                example-1:
+                  name: Oliver Amézquita Morales
+                  phone: 4775764663
+                  email: oliver.amezquita@hotmail.com
+                  rfc: AEMO850615TF6
+                  address: 'Circuito Maremma 150, Fracc. Benevento'
+                  zipcode: 37526
+                  city: León
+                  state: Guanajuato
+                  model: Mitsubishi Lancer 2009
+                  price: 176000
+              properties:
+                name:
+                  type: string
+                phone:
+                  type: number
+                email:
+                  type: string
+                rfc:
+                  type: string
+                address:
+                  type: string
+                zipcode:
+                  type: number
+                city:
+                  type: string
+                state:
+                  type: string
+                model:
+                  type: string
+                price:
+                  type: number
+              required:
+                - name
+                - phone
+                - email
+                - rfc
+                - address
+                - zipcode
+                - city
+                - state
+                - model
+                - price
+            examples: {}
+      description: Create a lead of the type car
+  /payroll:
+    get:
+      summary: Payroll list
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    clients:
+                      - id: 1
+                        name: Oliver Amézquita Morales
+                        phone: 4775764663
+                        email: oliver.amezquita@hotmail.com
+                        rfc: AEMO850615TF6
+                        address: 'Circuito Maremma 150, Fracc. Benevento'
+                        zipcode: 37526
+                        city: León
+                        state: Guanajuato
+                        type: car
+                        status: 1
+                        created: '2021-11-01 05:07:01'
+                        client_id: 1
+                        model: Mitsubishi Lancer 2009
+                        price: '179000.00'
+                properties:
+                  clients:
+                    type: array
+                    uniqueItems: false
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        name:
+                          type: string
+                        phone:
+                          type: number
+                        email:
+                          type: string
+                        rfc:
+                          type: string
+                        address:
+                          type: string
+                        zipcode:
+                          type: number
+                        city:
+                          type: string
+                        state:
+                          type: string
+                        type:
+                          type: string
+                        status:
+                          type: number
+                        created:
+                          type: string
+                        client_id:
+                          type: number
+                        company:
+                          type: string
+                        date_admission:
+                          type: string
+                          format: date
+              examples:
+                example-1:
+                  value:
+                    clients:
+                      - id: 1
+                        name: Oliver Amézquita Morales
+                        phone: 4775764663
+                        email: oliver.amezquita@hotmail.com
+                        rfc: AEMO850615TF6
+                        address: 'Circuito Maremma 150, Fracc. Benevento'
+                        zipcode: 37526
+                        city: León
+                        state: Guanajuato
+                        type: car
+                        status: 1
+                        created: '2021-11-01 05:07:01'
+                        client_id: 1
+                        company: Creditas
+                        date_admission: '2021-11-29'
+      operationId: get-payroll
+      description: Gets the list of registered leads of type payroll
+    post:
+      summary: Create payroll lead
+      operationId: post-payroll
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: 201
+                    client_id: 1
+                    error: null
+                    messages:
+                      success: El cliente ha sido creado exitosamente
+                properties:
+                  status:
+                    type: number
+                  client_id:
+                    type: number
+                  error: {}
+                  messages:
+                    type: object
+                    properties:
+                      success:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                    status: 201
+                    client_id: 1
+                    error: null
+                    messages:
+                      success: El cliente ha sido creado exitosamente
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: 400
+                    error: 400
+                    messages:
+                      name: The name field is required.
+                      phone: The phone field is required.
+                      email: The email field is required.
+                      rfc: The rfc field is required.
+                      address: The address field is required.
+                      zipcode: The zipcode field is required.
+                      city: The city field is required.
+                      state: The state field is required.
+                      model: The model field is required.
+                      price: The price field is required.
+                properties:
+                  status:
+                    type: number
+                  error:
+                    type: number
+                  messages:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      phone:
+                        type: string
+                      email:
+                        type: string
+                      rfc:
+                        type: string
+                      address:
+                        type: string
+                      zipcode:
+                        type: string
+                      city:
+                        type: string
+                      state:
+                        type: string
+                      company:
+                        type: string
+                      date_admission:
+                        type: string
+                        format: date
+              examples:
+                example-1:
+                  value:
+                    status: 400
+                    error: 400
+                    messages:
+                      name: The name field is required.
+                      phone: The phone field is required.
+                      email: The email field is required.
+                      rfc: The rfc field is required.
+                      address: The address field is required.
+                      zipcode: The zipcode field is required.
+                      city: The city field is required.
+                      state: The state field is required.
+                      company: The company field is required.
+                      date_admission: The date_admission field is required.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              description: ''
+              type: object
+              x-examples:
+                example-1:
+                  name: Oliver Amézquita Morales
+                  phone: 4775764663
+                  email: oliver.amezquita@hotmail.com
+                  rfc: AEMO850615TF6
+                  address: 'Circuito Maremma 150, Fracc. Benevento'
+                  zipcode: 37526
+                  city: León
+                  state: Guanajuato
+                  model: Mitsubishi Lancer 2009
+                  price: 176000
+              properties:
+                name:
+                  type: string
+                phone:
+                  type: number
+                email:
+                  type: string
+                rfc:
+                  type: string
+                address:
+                  type: string
+                zipcode:
+                  type: number
+                city:
+                  type: string
+                state:
+                  type: string
+                company:
+                  type: string
+                date_admission:
+                  type: string
+                  format: date
+              required:
+                - name
+                - phone
+                - email
+                - rfc
+                - address
+                - zipcode
+                - city
+                - state
+                - company
+                - date_admission
+            examples: {}
+      description: Create a lead of the type payroll
+    parameters: []
+  /house:
+    get:
+      summary: House list
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    clients:
+                      - id: 1
+                        name: Oliver Amézquita Morales
+                        phone: 4775764663
+                        email: oliver.amezquita@hotmail.com
+                        rfc: AEMO850615TF6
+                        address: 'Circuito Maremma 150, Fracc. Benevento'
+                        zipcode: 37526
+                        city: León
+                        state: Guanajuato
+                        type: house
+                        status: 1
+                        created: '2021-11-02 22:53:32'
+                        value: 1300000
+                        ug_address: Golfo de Bengala 209
+                        ug_zipcode: 37520
+                        ug_city: León
+                        ug_state: Guanajuato
+                properties:
+                  clients:
+                    type: array
+                    uniqueItems: false
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        name:
+                          type: string
+                        phone:
+                          type: number
+                        email:
+                          type: string
+                        rfc:
+                          type: string
+                        address:
+                          type: string
+                        zipcode:
+                          type: number
+                        city:
+                          type: string
+                        state:
+                          type: string
+                        type:
+                          type: string
+                        status:
+                          type: number
+                        created:
+                          type: string
+                        value:
+                          type: number
+                        ug_address:
+                          type: string
+                        ug_zipcode:
+                          type: number
+                        ug_city:
+                          type: string
+                        ug_state:
+                          type: string
+              examples:
+                example-1:
+                  value:
+                    clients:
+                      - id: 1
+                        name: Oliver Amézquita Morales
+                        phone: 4775764663
+                        email: oliver.amezquita@hotmail.com
+                        rfc: AEMO850615TF6
+                        address: 'Circuito Maremma 150, Fracc. Benevento'
+                        zipcode: 37526
+                        city: León
+                        state: Guanajuato
+                        type: house
+                        status: 1
+                        created: '2021-11-02 22:53:32'
+                        value: 1300000
+                        ug_address: Golfo de Bengala 209
+                        ug_zipcode: 37520
+                        ug_city: León
+                        ug_state: Guanajuato
+      operationId: get-house
+      description: Gets the list of registered leads of type house
+    post:
+      summary: Create house lead
+      operationId: post-house
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: 201
+                    client_id: 1
+                    error: null
+                    messages:
+                      success: El cliente ha sido creado exitosamente
+                properties:
+                  status:
+                    type: number
+                  client_id:
+                    type: number
+                  error: {}
+                  messages:
+                    type: object
+                    properties:
+                      success:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                    status: 201
+                    client_id: 1
+                    error: null
+                    messages:
+                      success: El cliente ha sido creado exitosamente
+                example-2:
+                  value:
+                    status: 0
+                    client_id: 0
+                    error: null
+                    messages:
+                      success: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: 400
+                    error: 400
+                    messages:
+                      name: The name field is required.
+                      phone: The phone field is required.
+                      email: The email field is required.
+                      rfc: The rfc field is required.
+                      address: The address field is required.
+                      zipcode: The zipcode field is required.
+                      city: The city field is required.
+                      state: The state field is required.
+                      model: The model field is required.
+                      price: The price field is required.
+                properties:
+                  status:
+                    type: number
+                  error:
+                    type: number
+                  messages:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      phone:
+                        type: string
+                      email:
+                        type: string
+                      rfc:
+                        type: string
+                      address:
+                        type: string
+                      zipcode:
+                        type: string
+                      city:
+                        type: string
+                      state:
+                        type: string
+                      value:
+                        type: number
+                      ug_address:
+                        type: string
+                      ug_zipcode:
+                        type: string
+                      ug_city:
+                        type: string
+                      ug_state:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                    status: 400
+                    error: 400
+                    messages:
+                      name: The name field is required.
+                      phone: The phone field is required.
+                      email: The email field is required.
+                      rfc: The rfc field is required.
+                      address: The address field is required.
+                      zipcode: The zipcode field is required.
+                      city: The city field is required.
+                      state: The state field is required.
+                      value: The value field is required.
+                      ug_address: The ug_address field is required.
+                      ug_zipcode: The ug_zipcode field is required.
+                      ug_city: The ug_city field is required.
+                      ug_state: The ug_state field is required.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              description: ''
+              type: object
+              x-examples:
+                example-1:
+                  name: Oliver Amézquita Morales
+                  phone: 4775764663
+                  email: oliver.amezquita@hotmail.com
+                  rfc: AEMO850615TF6
+                  address: 'Circuito Maremma 150, Fracc. Benevento'
+                  zipcode: 37526
+                  city: León
+                  state: Guanajuato
+                  model: Mitsubishi Lancer 2009
+                  price: 176000
+              properties:
+                name:
+                  type: string
+                phone:
+                  type: number
+                email:
+                  type: string
+                rfc:
+                  type: string
+                address:
+                  type: string
+                zipcode:
+                  type: number
+                city:
+                  type: string
+                state:
+                  type: string
+                value:
+                  type: number
+                ug_address:
+                  type: string
+                ug_zipcode:
+                  type: string
+                ug_city:
+                  type: string
+                ug_state:
+                  type: string
+              required:
+                - name
+                - phone
+                - email
+                - rfc
+                - address
+                - zipcode
+                - city
+                - state
+                - value
+                - ug_address
+                - ug_zipcode
+                - ug_city
+                - ug_state
+            examples: {}
+      description: Create a lead of the type house
+    parameters: []
+  '/client/{id}':
+    get:
+      summary: Get client by id
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: 200
+                    client:
+                      id: 1
+                      name: Oliver Amézquita Morales
+                      phone: 4775764663
+                      email: oliver.amezquita@hotmail.com
+                      rfc: AEMO850615TF6
+                      address: 'Circuito Maremma 150, Fracc. Benevento'
+                      zipcode: 37526
+                      city: León
+                      state: Guanajuato
+                      type: car
+                      status: 1
+                      created: '2021-11-03 02:49:35'
+                      client_id: 1
+                      model: Mitsubishi Lancer 2009
+                      price: '176,000.00'
+                properties:
+                  status:
+                    type: number
+                  client:
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                      name:
+                        type: string
+                      phone:
+                        type: number
+                      email:
+                        type: string
+                      rfc:
+                        type: string
+                      address:
+                        type: string
+                      zipcode:
+                        type: number
+                      city:
+                        type: string
+                      state:
+                        type: string
+                      type:
+                        type: string
+                      status:
+                        type: number
+                      created:
+                        type: string
+                        format: date-time
+                      client_id:
+                        type: number
+                      price:
+                        type: string
+                      model:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                    status: 200
+                    client:
+                      id: 1
+                      name: Oliver Amézquita Morales
+                      phone: 4775764663
+                      email: oliver.amezquita@hotmail.com
+                      rfc: AEMO850615TF6
+                      address: 'Circuito Maremma 150, Fracc. Benevento'
+                      zipcode: 37526
+                      city: León
+                      state: Guanajuato
+                      type: car
+                      status: 1
+                      created: '2021-11-03 02:49:35'
+                      client_id: 1
+                      model: Mitsubishi Lancer 2009
+                      price: '176,000.00'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: 404
+                    error: 404
+                    messages:
+                      error: El cliente no fue encontrado
+                properties:
+                  status:
+                    type: number
+                  error:
+                    type: number
+                  messages:
+                    type: object
+                    properties:
+                      error:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                    status: 404
+                    error: 404
+                    messages:
+                      error: El cliente no fue encontrado
+      operationId: get-client
+      description: 'Gets client object with additional information depending by type '
+    parameters:
+      - schema:
+          type: integer
+        name: id
+        in: path
+        required: true
+components:
+  schemas: {}
+  securitySchemes: {}
+  responses: {}

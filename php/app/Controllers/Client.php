@@ -51,6 +51,7 @@ class Client extends ResourceController
       ];
     }
 
+    // get client by id
     public function show($id = 0)
   	{
       $model = new ClientModel();

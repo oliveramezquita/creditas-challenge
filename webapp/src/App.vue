@@ -41,7 +41,7 @@
       </b-row>
     </b-container>
     <footer class="mt-5">
-      <p>&copy; Creditas - Technical Challenge</p>
+      <p>2021 &copy; Creditas - Technical Challenge</p>
       <ul>
         <li>
           <a href="https://www.linkedin.com/in/oliver-amezquita-morales/" target="_blank">
@@ -52,6 +52,9 @@
           <a href="https://github.com/oliveramezquita" target="_blank">
             <b-icon icon="github"></b-icon>
           </a>
+        </li>
+        <li>
+          <p>Oliver Amézquita Morales</p>
         </li>
       </ul>
     </footer>
