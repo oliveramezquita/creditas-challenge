@@ -1,4 +1,5 @@
 # webapp
+webapp is created with [https://vuejs.org/](Vue.js) in its version 2
 
 ## Project setup
 ```
