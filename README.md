@@ -7,13 +7,21 @@ Docker se encargará de todo el aprovisionamiento, la instalación y la configur
 
 Las imágenes de Docker predeterminadas que se utilizaron son:
 
-For PHP
+Para PHP
 
  - [https://hub.docker.com/_/php](https://hub.docker.com/_/php)
 
-For MySQL
+Para MySQL
 
  - [https://hub.docker.com/_/mysql](https://hub.docker.com/_/mysql)
+
+Para la Webapp 
+
+ - [https://hub.docker.com/_/node](https://hub.docker.com/_/node)
+
+Para la documentación
+
+ - [https://hub.docker.com/r/mhart/alpine-node](https://hub.docker.com/r/mhart/alpine-node)
 
 ## Requisitos
 Instala [docker](https://www.docker.com/).
@@ -42,7 +50,7 @@ Para ejecutar las pruebas es necesario abrir la terminal dentro la carpeta del r
 ```
 $ cd test
 ```
-2. Instala los módulos rqueridos ([Supertets](https://www.npmjs.com/package/supertest) y [Mocha](https://mochajs.org/)) para las pruebas:
+2. Instala los módulos requeridos ([Supertets](https://www.npmjs.com/package/supertest) y [Mocha](https://mochajs.org/)) para las pruebas:
 ```
 $ npm install
 ```
