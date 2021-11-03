@@ -60,5 +60,5 @@ $ npm test
 ```
 
 ## Documentación
-- Solución
+- [Solución](Solucion.docx)
 - [Endpoints - http://localhost:8081/#/](http://localhost:8081/#/)
